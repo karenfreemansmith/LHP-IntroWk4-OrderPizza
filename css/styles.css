@@ -1,0 +1,12 @@
+body {
+  background-color: orange;
+}
+h1 {
+  background-color: red;
+  color: white;
+  font-size: 4em;
+  line-height: 4em;
+  text-align: center;
+  font-family: 'Righteous', Georgia, serif;
+  border-radius: 25px;
+}
