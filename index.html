@@ -12,6 +12,59 @@
   <body>
     <div class="container">
       <h1>Order Joe's Pizza Online</h1>
+      <div class="row">
+        <div class="col-xs-9">
+
+
+          <form id="orderForm">
+            <div class="row">
+              <div class="form-group col-xs-6">
+                <label for="pizzaSize">Picka You Size</label>
+                <br><input type="radio" name="size">Personal (4") ...starting at $2.99
+                <br><input type="radio" name="size">Mini (6") ...starting at $4.99
+                <br><input type="radio" name="size">Small (8") ...starting at $5.99
+                <br><input type="radio" name="size">Medium (10") ...starting at $8.99
+                <br><input type="radio" name="size">Large (12") ...starting at $10.99
+                <br><input type="radio" name="size">X-Large (16") ...starting at $15.99
+                <br><input type="radio" name="size">Colossal (36") ...starting at $32.99
+              </div>
+              <div class="form-group col-xs-6">
+                <label for="toppings">Picka You Toppings</label>
+                <br>
+                <input type="checkbox" id="peperoni" name="toppings">Peperoni
+                <input type="checkbox" id="sausage" name="toppings">Sausage
+                <input type="checkbox" id="bacon" name="toppings">Bacon
+                <input type="checkbox" id="canadian" name="toppings">Canadian Bacon
+                <input type="checkbox" id="steak" name="toppings">Steak
+                <input type="checkbox" id="chicken" name="toppings">Chicken
+
+                <br>
+                <input type="checkbox" id="cheese" name="toppings">Cheese
+                <input type="checkbox" id="xtra" name="toppings">Xtra Cheese
+                <input type="checkbox" id="asiago" name="toppings">Asiago
+                <input type="checkbox" id="feta" name="toppings">Feta
+                <input type="checkbox" id="nacho" name="toppings">Nacho
+                <br>
+                <input type="checkbox" id="jalepeno" name="toppings">Jalepenos
+                <input type="checkbox" id="olives" name="toppings">Olives
+                <input type="checkbox" id="pepper" name="toppings">Peppers (Green)
+                <input type="checkbox" id="redpepper" name="toppings">Red Peppers
+                <input type="checkbox" id="onions" name="toppings">Onions
+                <input type="checkbox" id="tomatoes" name="toppings">Tomatoes
+                <input type="checkbox" id="mushrooms" name="toppings">Mushrooms
+                <input type="checkbox" id="anchovies" name="toppings">Anchovies
+                <br>
+                <button id="addToOrder" class="btn btn-block">Add to Order</button>
+            </div>
+          </div>
+          </form>
+        </div>
+        <div class="col-xs-3">
+          <h3>Your current order:</h3>
+          <ul id="yourOrder"></ul>
+          <img src="img/pizza.png" class="img-responsive">
+          <button id="orderNow" class="btn btn-block">Place Your Order</button>
+        </div>
     </div>
   <script src="js/jquery-1.12.2.js"></script>
   <script src="js/bootstrap.js"></script>
