@@ -1,14 +1,30 @@
 //alert("jQuery is working on " + $("h1").text()); //test for jQuery linked and loaded correctly
 //business logic
-function PizzaSizes() {
-  "personal":[4, 2.99],
-  "mini":[6, 4.99],
-  "small":[8, 5.99],
-  "medium":[10, 8.99],
-  "large":[12, 10.99],
-  "xlarge":[16, 15.99],
-  "colossal":[36, 32.99]
-}
+
+var pizzaSizes = [
+  { "name":"personal",
+    "size":4,
+    "price":2.99 },
+  { "name":"mini",
+    "size":6,
+    "price":4.99 },
+  { "name":"small",
+    "size":8,
+    "price":5.99 },
+  { "name":"medium",
+    "size":10,
+    "price":8.99 },
+  { "name":"large",
+    "size":12,
+    "price":10.99 },
+  { "name":"xlarge",
+    "size":16,
+    "price":15.99 },
+  { "name":"colossal",
+    "size":36,
+    "price":32.99 }
+];
+/*
 function Toppings() {
   "peperoni":[.99],
   "sausage":[.99],
@@ -30,3 +46,20 @@ function Toppings() {
   "mushrooms":[.49],
   "anchovies":[.49]
 }
+*/
+
+//user interface logic
+$("#addToOrder").click(function(event) {
+  event.preventDefault();
+  var pizzaSize = $("input:checked").val();
+  var yourSize = 0;
+  var yourPrice = 0;
+  pizzaSizes.forEach(function(pizza){
+    if(pizza.name===pizzaSize) {
+      yourSize=pizza.size;
+      yourPrice=pizza.price;
+    }
+  });
+  //alert(pizzaSizes.pizzaSize);
+  $("#yourOrder").append("<li>" + yourSize + "\" " + pizzaSize.toUpperCase() +  ": $" + yourPrice + "</li>");
+});
