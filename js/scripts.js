@@ -1,65 +1,64 @@
 //alert("jQuery is working on " + $("h1").text()); //test for jQuery linked and loaded correctly
 //business logic
 
-var pizzaSizes = [
-  { "name":"personal",
-    "size":4,
-    "price":2.99 },
-  { "name":"mini",
-    "size":6,
-    "price":4.99 },
-  { "name":"small",
-    "size":8,
-    "price":5.99 },
-  { "name":"medium",
-    "size":10,
-    "price":8.99 },
-  { "name":"large",
-    "size":12,
-    "price":10.99 },
-  { "name":"xlarge",
-    "size":16,
-    "price":15.99 },
-  { "name":"colossal",
-    "size":36,
-    "price":32.99 }
-];
-/*
-function Toppings() {
-  "peperoni":[.99],
-  "sausage":[.99],
-  "bacon":[.99],
-  "canadian":[.99],
-  "steak":[2.99],
-  "chicken":[1.99],
-  "cheese":[0],
-  "xtra":[.49],
-  "asiago":[2.99],
-  "feta":[2.99],
-  "nacho":[.99],
-  "jalepeno":[.49],
-  "olives":[.49],
-  "pepper":[.49],
-  "redpepper":[.49],
-  "onions":[.49],
-  "tomatoes":[.49],
-  "mushrooms":[.49],
-  "anchovies":[.49]
+function Pizza(type) {
+  this.type=type;
+  if(type==="personal") {
+    this.size=4,
+    this.price=2.99 }
+  if(type==="mini") {
+    this.size=6,
+    this.price=4.99 }
+  if(type==="small") {
+    this.size=8,
+    this.price=5.99 }
+  if(type==="medium") {
+    this.size=10,
+    this.price=8.99 }
+  if(type==="large") {
+    this.size=12,
+    this.price=10.99 }
+  if(type==="xlarge") {
+    this.size=16,
+    this.price=15.99 }
+  if(type==="colossal") {
+    this.size=36,
+    this.price=32.99 }
 }
-*/
+
+Pizza.prototype.addTopping = function(t) {
+  this.type+=" " +t;
+  if(t==="peperoni"){this.price+=.99}
+  if(t==="sausage"){this.price+=.99}
+  if(t==="bacon"){this.price+=.99}
+  if(t==="canadian"){this.price+=.99}
+  if(t==="steak"){this.price+=2.99}
+  if(t==="chicken"){this.price+=1.99}
+  if(t==="cheese"){this.price+=0}
+  if(t==="xtra"){this.price+=.49}
+  if(t==="asiago"){this.price+=2.99}
+  if(t==="feta"){this.price+=2.99}
+  if(t==="nacho"){this.price+=.99}
+  if(t==="jalepeno"){this.price+=.49}
+  if(t==="olive"){this.price+=.49}
+  if(t==="pepper"){this.price+=.49}
+  if(t==="redpepper"){this.price+=.49}
+  if(t==="onion"){this.price+=.49}
+  if(t==="tomato"){this.price+=.49}
+  if(t==="mushroom"){this.price+=.49}
+  if(t==="anchovy"){this.price+=.49}
+}
 
 //user interface logic
+var total = 0;
 $("#addToOrder").click(function(event) {
   event.preventDefault();
-  var pizzaSize = $("input:checked").val();
-  var yourSize = 0;
-  var yourPrice = 0;
-  pizzaSizes.forEach(function(pizza){
-    if(pizza.name===pizzaSize) {
-      yourSize=pizza.size;
-      yourPrice=pizza.price;
-    }
-  });
-  //alert(pizzaSizes.pizzaSize);
-  $("#yourOrder").append("<li>" + yourSize + "\" " + pizzaSize.toUpperCase() +  ": $" + yourPrice + "</li>");
+
+  var yourPizza = new Pizza ($("input[name='size']:checked").val());
+  yourPizza.addTopping($("input[name='toppings']:checked").val());
+
+  total+=yourPizza.price;
+
+$("#yourOrder").append("<li>" + yourPizza.size + "\" " + yourPizza.type.toUpperCase() +  ": $" + yourPizza.price + "</li>");
+$("#orderTotal").text("$" + total);
 });
