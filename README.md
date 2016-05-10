@@ -1,7 +1,7 @@
 # [Joe's Pizza](http://karenfreemansmith.github.io/pizza)
 ![project screenshot](/img/screenshot.jpg)
 
-__Version 1: April 27, 2016__
+__Version 1: May 9, 2016__
 ## by [Karen Freeman-Smith](http://karenfreemansmith.github.io)
 
 ### Description
@@ -21,8 +21,8 @@ __*A website to order a pizza.*__
 For questions or comments, please __email [Karen](karenfreemansmith@gmail.com)__
 
 ### Known Issues
-* Doesn't do anything with toppings yet
-* Needs to total order
+
+
 
 ### Technologies Used
 ###### HTML, CSS, Bootstrap, JavaScript, jQuery

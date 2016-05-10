@@ -55,10 +55,12 @@ $("#addToOrder").click(function(event) {
   event.preventDefault();
 
   var yourPizza = new Pizza ($("input[name='size']:checked").val());
-  yourPizza.addTopping($("input[name='toppings']:checked").val());
+  $("input[name='toppings']:checked").each(function() {
+    yourPizza.addTopping($(this).val());
+  });
 
   total+=yourPizza.price;
 
-$("#yourOrder").append("<li>" + yourPizza.size + "\" " + yourPizza.type.toUpperCase() +  ": $" + yourPizza.price + "</li>");
-$("#orderTotal").text("$" + total);
+$("#yourOrder").append("<li>" + yourPizza.size + "\" " + yourPizza.type.toUpperCase() +  ": $" + yourPizza.price.toFixed(2) + "</li>");
+$("#orderTotal").text("$" + total.toFixed(2));
 });

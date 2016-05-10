@@ -13,3 +13,11 @@ h1 {
 h3 {
   text-align: center;
 }
+ul {
+  background-image: url("../img/pizza.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: bottom;
+  min-height: 50px;
+  padding-bottom: 50px;
+}
